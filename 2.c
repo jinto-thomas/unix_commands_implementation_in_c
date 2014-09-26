@@ -8,11 +8,12 @@
 #include <bits/signum.h>
 #include <assert.h>
 
-static int i;
+int i;
 
 char *tab(char b[],int n);
 char *leaf(char a[],int k);
 void printeverything(char *);
+void walkin(char *);
 void pwd(char a[]);
 
 int main(int argc,char **argv)
@@ -54,7 +55,7 @@ void printeverything(char *path) {
 				else {
 					if (strcmp(p->d_name,".") == 0 || strcmp(p->d_name,"..") == 0 || strcmp(p->d_name,".git") == 0)
 						continue;
-					printf("%s#[%s]\n",tab(b,i),p->d_name);
+					printf("%s[#%s]\n",tab(b,i),p->d_name);
 					pwd(name2);
 					m = strcat(name2,p->d_name);
 					chdir(m);

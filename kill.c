@@ -9,14 +9,16 @@
 
 int main(int argc,char **argv)
 {
-	int i;
+	int i,j;
 	if (argc != 3) {
 		printf("my_kill - usage : %s <pid> <signal>\n",argv[0]);
 		exit(1);
 	}
-
-	if ((i = kill(atoi(argv[1]),atoi(argv[2]))) == -1) {
+	if ((i = kill(atoi(argv[1]),SIGABRT)) == -1) {
 			printf("error - cannot kill\n");
 			exit(1);
 	}
 }
+
+
+

@@ -11,7 +11,7 @@ int compare (const void *a,const void *b)
 }
 
 
-int main()
+int main(int argc,char **argv)
 {
 	DIR *o;
 
@@ -20,7 +20,8 @@ int main()
 	char *argar[100];
 	int i = 0;
 	int n = 0;
-	o = opendir(".");
+//	o = opendir(".");
+	o = opendir(*++argv);
 
 	while ((d = readdir(o)) != NULL) {
 			argar[i++] = d->d_name;
